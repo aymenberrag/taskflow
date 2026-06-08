@@ -1,0 +1,15 @@
+.stats-card {
+  background: linear-gradient(180deg,#071427,#02171f);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  transition: transform 0.18s ease;
+  color: #e6eef8;
+}
+
+.stats-card:hover { transform: translateY(-4px) }
+
+.stats-header { display: flex; align-items: center; gap: 10px }
+.stats-icon { font-size: 20px; color: var(--accent1) }
+.stats-card h3 { color: rgba(230,238,248,0.9); margin: 0; font-size: 13px; font-weight: 600 }
+.stats-card h1 { font-size: 2.2rem; margin: 8px 0 0 0; color: #fff }

@@ -1,0 +1,51 @@
+.project-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.project-header {
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(99,102,241,0.3);
+  margin-bottom: 20px;
+  color: white;
+}
+
+.project-header h1 { margin: 0 0 8px 0; font-size: 28px }
+.project-header p { margin: 0; color: rgba(255,255,255,0.95) }
+
+/* CREATE TASK CARD */
+.task-form-card {
+  background: linear-gradient(180deg,#071427,#041924);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  margin-bottom: 25px;
+  color: #e6eef8;
+}
+
+.task-form-card h2 { margin-bottom:12px; color:#fff }
+
+.task-form-card.dark .create-task-form { display: grid; gap:12px }
+.task-form-card.dark .input-label { color: #ffffff }
+.task-form-card.dark .input-field { background: #071427; border:1px solid rgba(255,255,255,0.06); color:#fff }
+.task-form-card .form-field { display:flex; flex-direction:column; gap:8px }
+
+/* TASK GRID */
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Mobile Responsive */
+@media(max-width: 768px) {
+  .project-page { padding: 12px }
+  .project-header { padding: 18px; margin-bottom: 16px }
+  .project-header h1 { font-size: 22px }
+  .task-form-card { padding: 16px; margin-bottom: 18px }
+  .tasks-grid { grid-template-columns: 1fr; gap: 16px }
+}

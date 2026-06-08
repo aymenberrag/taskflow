@@ -1,0 +1,82 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3,7,18,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 720px;
+  max-width: 95%;
+  background: #071027; /* solid dark background for modal */
+  border-radius: 14px;
+  padding: 24px; /* add padding so content is not flush */
+  box-shadow: 0 20px 60px rgba(2,6,23,0.6);
+}
+
+.modal-inner { display:flex; gap:0 }
+
+.modal-left { padding: 36px; width: 40%; background: linear-gradient(180deg, rgba(79,70,229,0.12), rgba(6,182,212,0.02)); border-radius: 14px 0 0 14px; color: white }
+.modal-left h2 { margin: 0 0 8px 0 }
+.modal-left .modal-desc { color: rgba(230,238,248,0.95); font-size: 14px }
+
+
+.modal-right { padding: 28px; width: 60%; background: #071427; color: rgba(255,255,255,0.98); border-radius: 0 14px 14px 0 }
+
+.auth-form { display:flex; flex-direction:column; gap:12px }
+.input-label { font-size:13px; color: #ffffff; font-weight:700 }
+.input-field { padding:14px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background: #071427; color: #ffffff; font-size:15px }
+
+/* Edit project form: stack fields in two rows with spacing and alignment */
+.edit-project-form { display: grid; grid-template-columns: 1fr; gap: 14px; align-items:start; width:100% }
+.edit-project-form .form-field { display:flex; flex-direction:column; gap:8px }
+.edit-project-form .modal-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:12px }
+
+.modal h2{ color: #ffffff; margin:0 0 12px 0; font-size:18px }
+
+/* Generic modal form used for editing tasks/subtasks/projects */
+.modal-form { display: grid; grid-template-columns: 1fr; gap:12px; width:100% }
+.modal-form .form-field { display:flex; flex-direction:column; gap:8px }
+.modal-form textarea.input-field { min-height: 110px }
+.edit-task-form .form-field, .edit-subtask-form .form-field { width:100% }
+.edit-task-form .modal-actions, .edit-subtask-form .modal-actions { display:flex; justify-content:flex-end; gap:10px }
+
+@media(min-width:900px){
+  /* if desired, task forms can be two columns later; keep stacked for clarity */
+}
+
+/* Delete confirmation styles */
+.delete-modal { display:flex; flex-direction:column; gap:18px; padding:6px 0 }
+.delete-top{ display:flex; gap:14px; align-items:flex-start }
+.danger-icon{ font-size:34px; color:#f87171 }
+.danger-text{ color: rgba(255,255,255,0.92); margin:6px 0 0 0 }
+.delete-modal h3{ margin:0; color:#ffffff }
+.danger-btn{ background: #ef4444; color: white; border:none; padding:10px 14px; border-radius:10px; cursor:pointer }
+.danger-btn:hover{ opacity:0.95 }
+
+.primary-btn { background: linear-gradient(90deg,#6366f1,#06b6d4); color:white; border:none; padding:12px 16px; border-radius:10px; cursor:pointer; font-weight:600; transition: opacity 0.2s }
+.primary-btn:hover { opacity:0.9 }
+
+.secondary-button { background: #0c1726; color: rgba(255,255,255,0.9); border:none; padding:10px 14px; border-radius:10px; cursor:pointer }
+
+.auth-footer { font-size:13px; color: rgba(255,255,255,0.8); margin-top:6px }
+.auth-switch { margin-top:10px; text-align:center; color: rgba(255,255,255,0.8) }
+.auth-switch span { color:#a78bfa; cursor:pointer; font-weight:600 }
+
+@media(max-width: 900px){
+  .modal { width: 92%; }
+  .modal-inner { flex-direction: column }
+  .modal-left, .modal-right { width:100%; border-radius: 14px }
+  .modal-left { border-radius: 14px 14px 0 0; padding: 20px }
+  .modal-right { padding: 18px; border-radius: 0 0 14px 14px }
+  .input-field { font-size: 15px; padding: 10px }
+  .primary-btn { width: 100%; }
+  .edit-project-form { gap: 10px }
+  .edit-task-form .modal-actions, .edit-subtask-form .modal-actions { flex-direction: column }
+  .edit-task-form .modal-actions button, .edit-subtask-form .modal-actions button { width: 100% }
+  .delete-modal { padding: 12px 0 }
+  .danger-icon { font-size: 28px }
+}

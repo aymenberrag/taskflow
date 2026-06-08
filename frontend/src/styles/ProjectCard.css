@@ -1,0 +1,39 @@
+.project-card {
+  background: linear-gradient(180deg,#071427,#031827);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  cursor: pointer;
+  transition: transform 0.18s ease;
+  color: #e6eef8;
+}
+
+.project-card:hover{ transform: translateY(-6px) }
+
+.project-card-top{ display:flex; gap:12px; align-items:flex-start }
+.project-avatar{ width:52px; height:52px; border-radius:12px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:20px }
+.project-info{ flex:1 }
+.project-title{ margin:0 0 6px 0; font-size:16px; color:#fff }
+.project-desc{ margin:0; color: rgba(230,238,248,0.85); font-size:13px; min-height:44px }
+
+.project-actions{ display:flex; gap:6px }
+.icon-btn{ background:transparent; border:none; padding:8px; border-radius:8px; color:var(--muted); cursor:pointer }
+.icon-btn.edit:hover{ background: rgba(255,255,255,0.03) }
+.icon-btn.delete:hover{ background: rgba(255,0,0,0.04); color:#fecaca }
+
+.project-card-footer{ display:flex; justify-content:space-between; align-items:center; margin-top:12px }
+.project-stats{ display:flex; gap:12px; color:rgba(255,255,255,0.85); font-size:13px }
+.open-link{ display:flex; align-items:center; gap:6px; color:var(--accent1); font-weight:700 }
+
+@media(max-width:768px) {
+  .project-card { padding: 12px }
+  .project-card-top { flex-direction: column }
+  .project-avatar { width: 40px; height: 40px; font-size: 16px }
+  .project-title { font-size: 14px }
+  .project-desc { min-height: 32px; font-size: 12px }
+  .project-actions { gap: 4px }
+  .project-card-footer { flex-direction: column; gap: 8px; align-items: flex-start }
+  .project-stats { gap: 8px; font-size: 12px }
+  .open-link { font-size: 12px }
+}
+

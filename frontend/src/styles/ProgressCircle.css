@@ -1,0 +1,37 @@
+.progress-circle {
+
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin: auto;
+}
+
+.progress-inner {
+
+  width: 140px;
+
+  height: 140px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 28px;
+
+  font-weight: bold;
+}
