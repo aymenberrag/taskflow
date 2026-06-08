@@ -1,10 +1,8 @@
+from app import create_app
 from flask_cors import CORS
 
-def create_app():
-    app = Flask(__name__)
+app = create_app()
+CORS(app)
 
-    CORS(
-        app,
-        resources={r"/*": {"origins": "*"}},
-        supports_credentials=True
-    )
+if __name__ == "__main__":
+    app.run(debug=True)
