@@ -7,7 +7,6 @@ import {
   FaUserCircle,
   FaChevronDown,
   FaSignOutAlt,
-  FaPlusCircle,
 } from "react-icons/fa";
 
 import "../styles/Navbar.css";
