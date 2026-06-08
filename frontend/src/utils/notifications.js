@@ -1,6 +1,6 @@
 const KEY = "notifications";
 
-export function getNotifications() {
+function getNotifications() {
   try {
     const raw = localStorage.getItem(KEY);
     return raw ? JSON.parse(raw) : [];
@@ -9,7 +9,7 @@ export function getNotifications() {
   }
 }
 
-export function addNotification({ title, message }) {
+function addNotification({ title, message }) {
   const list = getNotifications();
   const item = {
     id: Date.now(),
@@ -24,11 +24,11 @@ export function addNotification({ title, message }) {
   return item;
 }
 
-export function clearNotifications() {
+function clearNotifications() {
   localStorage.removeItem(KEY);
 }
 
-export function markAllRead() {
+function markAllRead() {
   const list = getNotifications();
   const updated = list.map((n) => ({ ...n, read: true }));
   localStorage.setItem(KEY, JSON.stringify(updated));
