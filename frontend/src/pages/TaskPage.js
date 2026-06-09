@@ -28,7 +28,7 @@ export default function TaskPage() {
 
   useEffect(() => {
     loadTask();
-  }, [id]);
+  });
 
   const loadTask = async () => {
     try {

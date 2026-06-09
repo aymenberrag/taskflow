@@ -30,7 +30,7 @@ export default function ProjectPage() {
   useEffect(() => {
     loadProject();
     loadTasks();
-  }, [id]);
+  });
 
   const loadProject = async () => {
     try {
