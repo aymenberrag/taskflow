@@ -2,3 +2,4 @@ from .user import User
 from .project import Project
 from .task import Task
 from .subtask import SubTask
+from .notification import Notification

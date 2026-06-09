@@ -8,7 +8,7 @@ export default function MainLayout() {
 
       <main
         style={{
-          marginTop: "70px",
+          marginTop: "76px",
           padding: "20px",
           minHeight: "100vh",
           background: "#f8fafc"

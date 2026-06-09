@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import ProjectPage from "./pages/ProjectPage";
 import TaskPage from "./pages/TaskPage";
+import Tasks from "./pages/Tasks";
 
 import Notifications from "./pages/Notifications";
 import Profile from "./pages/Profile";
@@ -40,6 +41,11 @@ function App() {
           <Route
             path="/dashboard"
             element={<Dashboard />}
+          />
+
+          <Route
+            path="/tasks"
+            element={<Tasks />}
           />
 
           <Route

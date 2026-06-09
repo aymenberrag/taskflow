@@ -1,37 +1,21 @@
-const KEY = "notifications";
+import api from "../api/axios";
 
-export function getNotifications() {
-  try {
-    const raw = localStorage.getItem(KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-export function addNotification({ title, message }) {
-  const list = getNotifications();
-  const item = {
-    id: Date.now(),
-    title,
-    message,
-    date: new Date().toISOString(),
-    read: false,
+export async function fetchNotifications() {
+  const res = await api.get("/notifications/");
+  return {
+    notifications: res.data.notifications || [],
+    unreadCount: res.data.unread_count || 0,
   };
-
-  list.unshift(item);
-  localStorage.setItem(KEY, JSON.stringify(list.slice(0, 50)));
-  return item;
 }
 
-export function clearNotifications() {
-  localStorage.removeItem(KEY);
+export async function markNotificationRead(id) {
+  await api.put(`/notifications/${id}/read`);
 }
 
-export function markAllRead() {
-  const list = getNotifications();
-  const updated = list.map((n) => ({ ...n, read: true }));
-  localStorage.setItem(KEY, JSON.stringify(updated));
+export async function markAllRead() {
+  await api.put("/notifications/read-all");
 }
 
-
+export async function clearNotifications() {
+  await api.delete("/notifications/");
+}

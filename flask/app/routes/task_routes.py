@@ -1,7 +1,7 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from flask import Blueprint, request
-from flask_jwt_extended import jwt_required,get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from app import db
 from app.models.task import Task
@@ -12,6 +12,39 @@ task_bp = Blueprint(
     __name__,
     url_prefix="/tasks"
 )
+
+# -----------------------------
+# GET TASKS FOR CURRENT USER
+# -----------------------------
+@task_bp.route("/", methods=["GET"])
+@jwt_required()
+def get_user_tasks():
+    user_id = int(get_jwt_identity())
+    filter_type = request.args.get("filter", "all")
+    date_str = request.args.get("date")
+
+    query = Task.query.filter_by(assigned_user_id=user_id)
+
+    if date_str:
+        try:
+            selected_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+            query = query.filter(Task.due_date == selected_date)
+        except ValueError:
+            return {"message": "Invalid date format. Use YYYY-MM-DD."}, 400
+    elif filter_type == "today":
+        today = datetime.today().date()
+        query = query.filter(Task.due_date == today)
+    elif filter_type == "week":
+        today = datetime.today().date()
+        week_end = today + timedelta(days=6)
+        query = query.filter(Task.due_date >= today, Task.due_date <= week_end)
+
+    tasks = query.order_by(Task.due_date.asc()).all()
+
+    return {
+        "tasks": [task.to_dict() for task in tasks]
+    }
+
 
 # -----------------------------
 # CREATE TASK

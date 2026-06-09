@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import "../styles/AuthModal.css";
 
 export default function AuthModal({ close }) {
   const [isLogin, setIsLogin] = useState(true);

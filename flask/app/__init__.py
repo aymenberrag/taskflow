@@ -15,7 +15,7 @@ def create_app():
     jwt.init_app(app)
 
     # Import models
-    from app.models import User, Project, Task, SubTask
+    from app.models import User, Project, Task, SubTask, Notification
 
     # Register blueprints
     from app.routes.project_routes import project_bp
@@ -32,6 +32,9 @@ def create_app():
 
     from app.routes.dashboard_routes import dashboard_bp
     app.register_blueprint(dashboard_bp,url_prefix="/dashboard")
+
+    from app.routes.notification_routes import notification_bp
+    app.register_blueprint(notification_bp)
 
     with app.app_context():
         db.create_all()
